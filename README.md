@@ -32,7 +32,9 @@ TO RUN SCRIPT OPEN TERMINAL IN FOLDER AND TYPE
 
 chmod u+x 1zkBTCMiner.sh or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
 
-./1zkBTCMiner.sh
+Then type in terminal in our folder
+
+`./1zkBTCMiner.sh`
 
 to run the miner
 
