@@ -28,8 +28,6 @@ Go to Downloaded Folder and Open Terminal
 
 TO RUN SCRIPT OPEN TERMINAL IN FOLDER AND TYPE
 
-chmod u+x 1zkBTCMiner.sh  or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
-
 
 
 chmod u+x 1zkBTCMiner.sh or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
@@ -38,11 +36,7 @@ chmod u+x 1zkBTCMiner.sh or right click the file -> Properities -> Permissions a
 
 to run the miner
 
-or
-
-./1zkBTCMiner.sh
-
-Mines normally using your eth account to mint the tokens
+Mines normally using the provided eth account to mint the tokens
 
 It should run!
 
