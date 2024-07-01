@@ -46,5 +46,5 @@ Mines normally using your eth account to mint the tokens
 
 It should run!
 
-Edit the 1zkBTCMiner.sh file and _zkBitcoinMiner.conf to edit your settings
+<h2>Edit the 1zkBTCMiner.sh file and _zkBitcoinMiner.conf to edit your settings</h2>
 
