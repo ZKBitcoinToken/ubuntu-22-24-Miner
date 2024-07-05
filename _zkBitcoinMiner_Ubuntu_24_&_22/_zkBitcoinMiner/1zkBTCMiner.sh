@@ -56,9 +56,17 @@ else
     echo "CUDA toolkit 12.5 is already installed."
 fi
 
+if ! dpkg -l | grep -q ubuntu-drivers-common; then
+    echo "ubuntu-drivers is not installed. Reboot system after fresh install"
+    sudo apt-get update
+    sudo ubuntu-drivers autoinstall
+    sudo reboot
+else
+    echo "ubuntu-drivers is already installed."
+fi
 
 # Optionally, you can also run the autoinstall command after checking
-sudo ubuntu-drivers autoinstall
+#sudo ubuntu-drivers autoinstall
 
 while : ; do
   dotnet _zkBitcoinMiner.dll allowCPU=false allowIntel=true allowAMD=true pool=http://pool.zkbitcoin.org:6122 minerAddress=0xF8B99643fAfC79d9404DE68E48C4D49a3936f78 allowCUDA=true web3api=https://mainnet.era.zksync.io abiFile=zkBTC.abi contract=0x366d17aDB24A7654DbE82e79F85F9Cb03c03cD0D MaxZKBTCperMint=200 MinZKBTCperMint=150 HowManyBlocksAWAYFromAdjustmentToSendMinimumZKBTC=500 gasToMine=0.35  gasApiMax=1 gasLimit=1000000 gasApiURL= gasApiPath=$.safeLow gasApiMultiplier=0.1 gasApiOffset=1.0
