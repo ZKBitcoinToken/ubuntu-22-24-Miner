@@ -70,11 +70,10 @@ fi
 #sudo ubuntu-drivers autoinstall
 
 while : ; do
-  output=$(dotnet _zkBitcoinMiner.dll allowCPU=false allowIntel=true allowAMD=true pool=http://pool.zkbitcoin.org:6122 minerAddress=0xF8B99643fAfC79d9404DE68E48C4D49a3936f78 allowCUDA=true web3api=https://mainnet.era.zksync.io abiFile=zkBTC.abi contract=0x366d17aDB24A7654DbE82e79F85F9Cb03c03cD0D MaxZKBTCperMint=200 MinZKBTCperMint=150 HowManyBlocksAWAYFromAdjustmentToSendMinimumZKBTC=500 gasToMine=0.35 gasApiMax=1 gasLimit=1000000 gasApiURL= gasApiPath=$.safeLow gasApiMultiplier=0.1 gasApiOffset=1.0 2>&1)
-  [[ $? -eq 22 ]] || break
+  output=$(dotnet _zkBitcoinMiner.dll allowCPU=false allowIntel=true allowAMD=true pool=http://pool.zkbitcoin.org:6122 minerAddress=0xF8B99643fAfC79d9404DE68E48C4D49a3936f78 allowCUDA=true web3api=https://mainnet.era.zksync.io abiFile=zkBTC.abi contract=0x366d17aDB24A7654DbE82e79F85F9Cb03c03cD0D MaxZKBTCperMint=200 MinZKBTCperMint=150 HowManyBlocksAWAYFromAdjustmentToSendMinimumZKBTC=500 gasToMine=0.35 gasApiMax=1 gasLimit=1000000 gasApiURL= gasApiPath=$.safeLow gasApiMultiplier=0.1 gasApiOffset=1.0 2>&1 | tee /dev/tty)  [[ $? -eq 22 ]] || break
 done
 
-if [[ "$output" == *"CUDA driver version is insufficent"* ]]; then
+if [[ "$output" == *"CUDA driver version is insufficient"* ]]; then
   echo "Error: Cuda driver version is insufficient for Cuda runtime version."
   echo "ubuntu-drivers is not installed. Reboot system after fresh install"
   sudo apt-get update
