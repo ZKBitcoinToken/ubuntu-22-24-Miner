@@ -3,13 +3,14 @@
 please see other repsoitory for Ubuntu 18 & 20
 
 Go to download Folder and
-chmod u+x 1zkBTCMiner.sh  or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
+`chmod u+x 1zkBTCMiner.sh`  or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
 
-chmod u+x 1zkBTCMiner.sh or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
+`chmod u+x 1zkBTCMiner.sh` or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
 
-./1zkBTCMiner.sh
+then type 
+`./1zkBTCMiner.sh`
 
-to run the miner to install depencidies for Ubuntu 22 & 24
+to run the miner to install dependicies for Ubuntu 22 & 24
 
 TO RUN SCRIPT OPEN TERMINAL IN FOLDER AND TYPE
 
