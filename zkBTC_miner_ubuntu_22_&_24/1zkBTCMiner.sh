@@ -46,8 +46,8 @@ if [[ "$output" == *"CUDA driver version is insufficient"* && "$output" == *"Ope
   sudo apt-get update
   sudo apt-get install -y ubuntu-drivers-common
   sudo ubuntu-drivers autoinstall
-  echo "We installed drivers waiting 15 seconds then rebooting machine"
-  sleep 15
+  echo "We installed drivers waiting 25 seconds then rebooting machine"
+  sleep 25
   sudo reboot
 else
   echo "Output says cuda driver version is okay"
