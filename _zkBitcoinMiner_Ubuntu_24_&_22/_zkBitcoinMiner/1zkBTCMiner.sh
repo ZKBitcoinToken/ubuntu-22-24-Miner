@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+if ! command -v curl &> /dev/null
+then
+    echo "curl is not found or not installed."
+    sudo apt install -y curl
+else
+    echo "curl is already installed."
+fi
 
 #Check for dotnet
 if ! command -v dotnet &> /dev/null
