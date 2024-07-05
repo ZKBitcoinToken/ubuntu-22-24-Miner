@@ -56,15 +56,16 @@ else
     echo "CUDA toolkit 12.5 is already installed."
 fi
 
-if ! dpkg -l | grep -q ubuntu-drivers-common; then
+
+if ! dpkg-query -W -f='${Status}' ubuntu-drivers-common 2>/dev/null | grep -q "ok installed"; then
     echo "ubuntu-drivers is not installed. Reboot system after fresh install"
     sudo apt-get update
+    sudo apt-get install -y ubuntu-drivers-common
     sudo ubuntu-drivers autoinstall
     sudo reboot
 else
     echo "ubuntu-drivers is already installed."
 fi
-
 # Optionally, you can also run the autoinstall command after checking
 #sudo ubuntu-drivers autoinstall
 
