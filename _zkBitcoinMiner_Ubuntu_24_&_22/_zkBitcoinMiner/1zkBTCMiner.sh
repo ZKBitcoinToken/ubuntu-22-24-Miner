@@ -6,14 +6,16 @@ if ! command -v dotnet &> /dev/null
 then
     echo "dotnet 5.0 is not found or not installed."
     echo "Installing dotnet 5.0..."
-
-    # Add Microsoft package signing key and repository
-    wget https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+    
+    # Update and upgrade system
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install build-essential cmake git -y
+    curl 'http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb' -O
+    sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb 
+    curl 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb' -O
     sudo dpkg -i packages-microsoft-prod.deb
-    sudo apt-get update; \
-    sudo apt-get install -y apt-transport-https && \
-    sudo apt-get update && \
-    sudo apt-get install -y dotnet-sdk-5.0
+    sudo apt update
+    sudo apt install -y dotnet-sdk-5.0
 
     # Verify the installation
     dotnet --version
@@ -23,6 +25,28 @@ then
     goto end
 else
     echo "dotnet 5.0 is already installed."
+fi
+
+
+# Check for CUDA toolkit
+if ! dpkg -l | grep -q cuda-toolkit-12-5; then
+    echo "CUDA toolkit 12.5 is not found or not installed."
+    curl -O 'https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda-repo-debian12-12-5-local_12.5.0-555.42.02-1_amd64.deb'
+    sudo dpkg -i cuda-repo-debian12-12-5-local_12.5.0-555.42.02-1_amd64.deb
+    sudo cp /var/cuda-repo-debian12-12-5-local/cuda-*-keyring.gpg /usr/share/keyrings/
+    sudo add-apt-repository contrib
+    sudo apt-get update
+    sudo apt-get -y install cuda-toolkit-12-5
+
+    # Verify the installation
+    if dpkg -l | grep -q cuda-toolkit-12-5; then
+        echo "CUDA toolkit 12.5 is installed."
+    else
+        echo "CUDA toolkit 12.5 installation failed."
+        exit 1
+    fi
+else
+    echo "CUDA toolkit 12.5 is already installed."
 fi
 
 while : ; do
