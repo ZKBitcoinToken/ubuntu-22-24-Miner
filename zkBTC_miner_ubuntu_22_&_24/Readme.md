@@ -17,7 +17,7 @@ TO RUN SCRIPT OPEN TERMINAL IN FOLDER AND TYPE
 then type 
 `./1zkBTCMiner.sh`
 
-to run the miner after depencidies are all installed
+to run the miner after dependicies are all installed
 
 Mines normally using your eth account to mint the tokens
 
