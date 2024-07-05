@@ -19,7 +19,7 @@ then
     sudo apt install build-essential cmake git -y
     curl 'http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb' -O
     sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.23_amd64.deb 
-    curl 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb' -O
+    curl -o packages-microsoft-prod.deb 'https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb'
     sudo dpkg -i packages-microsoft-prod.deb
     sudo apt update
     sudo apt install -y dotnet-sdk-5.0
