@@ -35,26 +35,6 @@ else
 fi
 
 
-# Check for CUDA toolkit
-if ! dpkg -l | grep -q cuda-toolkit-12-5; then
-    echo "CUDA toolkit 12.5 is not found or not installed."
-    curl -O 'https://developer.download.nvidia.com/compute/cuda/12.5.0/local_installers/cuda-repo-debian12-12-5-local_12.5.0-555.42.02-1_amd64.deb'
-    sudo dpkg -i cuda-repo-debian12-12-5-local_12.5.0-555.42.02-1_amd64.deb
-    sudo cp /var/cuda-repo-debian12-12-5-local/cuda-*-keyring.gpg /usr/share/keyrings/
-    sudo add-apt-repository contrib
-    sudo apt-get update
-    sudo apt-get -y install cuda-toolkit-12-5
-
-    # Verify the installation
-    if dpkg -l | grep -q cuda-toolkit-12-5; then
-        echo "CUDA toolkit 12.5 is installed."
-    else
-        echo "CUDA toolkit 12.5 installation failed."
-        exit 1
-    fi
-else
-    echo "CUDA toolkit 12.5 is already installed."
-fi
 
 
 if ! dpkg-query -W -f='${Status}' ubuntu-drivers-common 2>/dev/null | grep -q "ok installed"; then
@@ -80,6 +60,8 @@ if [[ "$output" == *"CUDA driver version is insufficient"* ]]; then
   sudo apt-get update
   sudo apt-get install -y ubuntu-drivers-common
   sudo ubuntu-drivers autoinstall
+  echo "We installed drivers waiting 10 seconds then rebooting machine"
+  sleep 10
   sudo reboot
 else
   echo "Output says cuda driver version is okay"
