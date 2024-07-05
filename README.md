@@ -1,7 +1,7 @@
 # zkBitcoin-Mainnet-Linux-Miner
 # Installing Script on Ubuntu 20 & 22 & 24
 <h2>To Install dependicies </h2>
-Go to download Folder and `chmod u+x 1zkBTCMiner.sh`  or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
+Go to download Folder and `chmod u+x 1zkBTCMiner.sh`   or right click the file -> Properities -> Permissions and check "Allow executing file as Program"
 
 then type 
 `./1zkBTCMiner.sh`
