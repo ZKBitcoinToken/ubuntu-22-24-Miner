@@ -50,3 +50,5 @@ rm -f packages-microsoft-prod.deb
 
 sudo apt-get install apt-transport-https -y
 sudo apt-get install dotnet-sdk-5.0 -y
+
+echo "run 'sudo ubuntu-drivers autoinstall' to install all the display drivers needed"
