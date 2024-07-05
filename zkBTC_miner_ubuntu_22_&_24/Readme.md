@@ -7,7 +7,7 @@ Go to download Folder and type `chmod u+x 1zkBTCMiner.sh` or right click the fil
 then type 
 `./1zkBTCMiner.sh`
 
-<b>Miner may restart computer after installing display driver graphics</b>
+<b>Script will restart computer after installing display driver graphics</b>
 <h2>To run the miner</h2>
 
 TO RUN SCRIPT OPEN TERMINAL IN FOLDER AND TYPE
